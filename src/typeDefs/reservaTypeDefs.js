@@ -47,7 +47,7 @@ const reservaTypes = gql`
     type Query{
         getReserva(idReserva: Int!): ReservaDetail
         getReservas: [ReservaDetail]
-        getReservasForUser(user: Int!): [ReservaDetail]
+        getReservasByUser(user: Int!): [ReservaDetail]
     }
 
     type Mutation {

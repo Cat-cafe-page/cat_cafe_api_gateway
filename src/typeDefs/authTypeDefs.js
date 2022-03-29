@@ -38,7 +38,7 @@ const authTypes = gql`
 
   input UserUpdate {
     id: Int!
-    username: String!
+    username: String
     password: String!
     name: String!
     email: String

@@ -43,9 +43,9 @@ const planTypes = gql`
     type Query{
         getPlan(planId: Int!): Plan
         getPlans: [Plan!]
-        getPlansForTime(jornada: String!): [Plan]
-        getPlansForDuration(duracion: Int!): [Plan]
-        getPlansForPrice(precio: Int!): [Plan]
+        getPlansByTime(jornada: String!): [Plan]
+        getPlansByDuration(duracion: Int!): [Plan]
+        getPlansByPrice(precio: Int!): [Plan]
     }
 
     type Mutation {
