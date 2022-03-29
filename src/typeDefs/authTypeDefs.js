@@ -1,35 +1,41 @@
-//representa los procesos necesarios para realizar procesos de registro y autenticación
-const { gql } = require("apollo-server");
+//representa los procesos necesarios para realizar el registro y autenticación
+const { gql } = require("apollo-server");//invoca gql abreviacion de graphQL
 
 //se definen las queries que son consultas de datos
-// y mutations que transforman datos y las operaciones que realizan 
-const authTypes = gql`
+// y mutations que transforman datos en la base de datos
+const authTypes = gql` 
   type Tokens {
     refresh: String!
     access: String!
   }
+
   type Access {
     access: String!
   }
+
   input Refresh {
     refresh: String!
   }
+
   input CredentialsInput {
     username: String!
     password: String!
   }
+
   input SingUpInput {
     username: String!
     password: String!
     name: String!
     email: String!
   }
+
   type UserDetail {
     id: Int!
     username: String!
     name: String!
     email: String
   }
+
   input UserUpdate {
     id: Int!
     username: String!
@@ -37,9 +43,11 @@ const authTypes = gql`
     name: String!
     email: String
   }
+
   type Query { 
     userDetailById(userId: Int!): UserDetail!
   }
+
   type Mutation {
     singUpUser(userInput: SingUpInput): Tokens!
     logIn(credentials: CredentialsInput!): Tokens!
