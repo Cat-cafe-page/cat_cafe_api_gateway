@@ -15,25 +15,16 @@ const gatosResolver = {
     },
 
     Mutation: {
-        createGato: async (_, { gato }, { dataSources, userIdToken }) => {
-            userToken = (await dataSources.authAPI.getUser(userIdToken));
-            if (user.id == userIdToken)
-                return await dataSources.gatosAPI.createGato(gato);
-            else return null;
+        createGato: async (_, { gato }, { dataSources}) => {
+            return await dataSources.gatosAPI.createGato(gato);
         },
 
         updateGato: async (_, { gato, gatoId }, { dataSources }) => {
-            userToken = (await dataSources.authAPI.getUser(userIdToken));
-            if (user.id == userIdToken)
-                return await dataSources.gatosAPI.updateGato(gato, gatoId);
-            else return null;
+            return await dataSources.gatosAPI.updateGato(gato, gatoId);
         },
 
         deleteGato: async (_, { gatoId }, { dataSources }) => {
-            userToken = (await dataSources.authAPI.getUser(userIdToken));
-            if (user.id == userIdToken)
-                return await dataSources.gatosAPI.deleteGato(gatoId);
-            else return null;
+            return await dataSources.gatosAPI.deleteGato(gatoId);
         },
     },
 };
