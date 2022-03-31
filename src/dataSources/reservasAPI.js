@@ -25,9 +25,8 @@ class ReservaAPI extends RESTDataSource {
         return await this.post("/reserva_usuario/", reserva);
     }
 
-    async updateReserva(reserva) {
-        reserva = new Object(reserva);
-        let reservaId = reserva.id;//obtiene el id del objeto reserva como una variable
+    async updateReserva(reserva, reservaId) {
+        const reserva = new Object(reserva);
         return await this.put(`/reserva_usuario/update/${reservaId}`, reserva);
     } 
 
@@ -60,9 +59,8 @@ class ReservaAPI extends RESTDataSource {
         return await this.post("/plan_usuario/", plan);
     }
 
-    async updatePlan(plan) {
-        plan = new Object(plan);
-        let planId = plan.id;//obtiene el id del objeto plan como una variable
+    async updatePlan(plan, planId) {
+        const plan = new Object(plan);
         return await this.put(`/plan_usuario/update/${planId}/`, plan);
     }
 
