@@ -42,7 +42,7 @@ const planTypes = gql`
 
     type Query{
         getPlan(planId: Int!): Plan
-        getPlans: [Plan!]
+        getAllPlans: [Plan!]
         getPlansByTime(jornada: String!): [Plan]
         getPlansByDuration(duracion: Int!): [Plan]
         getPlansByPrice(precio: Int!): [Plan]

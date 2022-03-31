@@ -1,11 +1,11 @@
 //reciben como parametros los datos definidos en los typeDefs y un objeto datasource que permite acceder a los microservicios 
 const donacionResolver = {
     Query: {//procesa las peticiones
-        getDonation: async (_, { donacionId }, { dataSources }) => {
-            return await dataSources.donacionesAPI.getDonationById(donacionId);
+        getDonation: async (_, { idDonacion }, { dataSources }) => {
+            return await dataSources.donacionesAPI.getDonationById(idDonacion);
         },
 
-        getDonations: async (_, {}, { dataSources }) => {
+        getAllDonations: async (_, {}, { dataSources }) => {
             return await dataSources.donacionesAPI.getAllDonations();
         },
 

@@ -4,8 +4,7 @@ const serverConfig = require("../server");//tiene las uri para conectarse a las 
 
 class DonacionAPI extends RESTDataSource {
     constructor(){
-        super();
-        this.baseURL = serverConfig.donaciones_api_url;
+        super(), (this.baseURL = serverConfig.donaciones_api_url);
     }
 
     //metodos asincronos 
@@ -13,8 +12,8 @@ class DonacionAPI extends RESTDataSource {
         return await this.get("/donaciones/");
     } 
 
-    async getDonationById(donacionId) {//necesita la llave primaria o id de la donacion
-        return await this.get(`/donacion/${donacionId}/`);
+    async getDonationById(idDonacion) {//necesita la llave primaria o id de la donacion
+        return await this.get(`/donacion/${idDonacion}/`);
     }
 
     async getDonationsByEmail(email) {//necesita el email del donante

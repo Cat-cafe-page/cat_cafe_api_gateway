@@ -46,7 +46,7 @@ const reservaTypes = gql`
 
     type Query{
         getReserva(idReserva: Int!): ReservaDetail
-        getReservas: [ReservaDetail]
+        getAllReservas: [ReservaDetail]
         getReservasByUser(user: Int!): [ReservaDetail]
     }
 

@@ -6,7 +6,7 @@ const donacionTypes = gql`
         id_donation: Int!
         email: String!
         cardNumber: Int!
-        nameOnCard: String
+        nameOnCard: String!
         amount: Int!
         city: String!
     }
@@ -21,20 +21,20 @@ const donacionTypes = gql`
     input DonacionInput{
         email: String!
         cardNumber: Int!
-        nameOnCard: String
+        nameOnCard: String!
         amount: Int!
         city: String!
     }
 
     type Query{
-        getDonation(donacionId: Int!): DonacionDetail!
-        getDonations: [DonacionDetail!]
+        getDonation(idDonacion: Int!): DonacionDetail
+        getAllDonations: [DonacionDetail!]
         getDonationByUserEmail(email: String!): [DonacionDetail!]
         getDonationByCity(city: String!): [DonacionDetail!]
     }
 
     type Mutation {
-        createDonation(donacion: DonacionInput): Donacion!
+        createDonation(donacion: DonacionInput): Donacion
     }
 `;
 

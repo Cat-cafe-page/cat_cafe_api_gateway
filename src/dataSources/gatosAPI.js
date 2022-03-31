@@ -4,30 +4,34 @@ const serverConfig = require("../server");//tiene las uri para conectarse a las 
 
 class GatosAPI extends RESTDataSource {
     constructor(){
-        super();
-        this.baseURL = serverConfig.gatos_api_url;
+        super(), (this.baseURL = serverConfig.gatos_api_url);
     }
 
     //metodos asincronos 
     async getAllGatos(){//trae las info de todos los gatos en la db
         return await this.get("/gatos");
     } 
+
     async getGatoById(gatoId) {//necesita la llave primaria o id del gato
-        return await this.get(`/gato/${gatoId}/`);
+        return await this.get(`/gato/${gatoId}`);
     }
+    
     async getGatoByAdoptionYear(añoDeAdopcion) {//necesita el año de adopcion
         return await this.get(`/gatos/${añoDeAdopcion}`);
     }
+
     async createGato(gato) {//recibe una estructura de datos gato
         gato = new Object(JSON.parse(JSON.stringify(gato)));//convierte el gato a JSON y luego a objeto
         return await this.post("/createGato", gato);//invoca el servicio web para crear el gato
     }
+
     async deleteGato(gatoId) {//elimina el gato por el id
         return await this.delete(`/deleteGato/${gatoId}`);
     }
+
     async updateGato(gato, gatoId) {
-        const gato = new Object(gato);
-        return await this.put(`/updateGato/${gatoId}`, gato);
+        const Gato = new Object(gato);
+        return await this.put(`/updateGato/${gatoId}`, Gato);
     }    
 }
 module.exports = GatosAPI;

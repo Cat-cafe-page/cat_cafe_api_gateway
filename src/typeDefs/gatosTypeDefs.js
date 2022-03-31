@@ -5,7 +5,7 @@ const gatosTypes = gql`
     type Gatos{
         id: String!
         nombre: String!
-        edad: Int!
+        edad: Int
         añoAdopcion: String!
         descripcion: String!
         url: String!
@@ -13,7 +13,7 @@ const gatosTypes = gql`
 
     input GatoInput{
         nombre: String!
-        edad: Int!
+        edad: Int
         añoAdopcion: String!
         descripcion: String!
         url: String!
@@ -21,7 +21,7 @@ const gatosTypes = gql`
 
     input GatoUpdate{
         nombre: String!
-        edad: Int!
+        edad: Int
         añoAdopcion: String!
         descripcion: String!
         url: String!
@@ -29,7 +29,7 @@ const gatosTypes = gql`
 
     type Query {
         getGatoById(gatoId: String!): Gatos!
-        getGatos: [Gatos!]
+        getAllGatos: [Gatos!]
         getGatosByYearAdoption(añoAdopcion: String!): [Gatos!]
     }
 
@@ -39,5 +39,4 @@ const gatosTypes = gql`
         deleteGato(gatoId: String!): String!
     }
 `;
-
 module.exports = gatosTypes;

@@ -21,7 +21,6 @@ const userResolver = {
 
         refreshToken: async (_, { token }, { dataSources }) =>
             dataSources.authAPI.refreshToken(token),
-
         updateUser: async (_, { user }, { dataSources, userIdToken }) => {
             if (user.id == userIdToken) //si el id del usuario actualizado es igual al token del usuario deja actualizar
                 return await dataSources.authAPI.updateUser(user);

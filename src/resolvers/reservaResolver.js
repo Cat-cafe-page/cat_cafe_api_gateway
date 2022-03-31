@@ -5,7 +5,7 @@ const reservaResolver = {
             return await dataSources.reservasAPI.getReservaById(idReserva);
         },
 
-        getReservas: async (_, {}, { dataSources }) => {
+        getAllReservas: async (_, {}, { dataSources }) => {
             return await dataSources.reservasAPI.getAllReservas();
         },
 
@@ -20,7 +20,7 @@ const reservaResolver = {
         },
 
         updateReserva: async (_, { idReserva, Reserva }, { dataSources }) => {
-            return await dataSources.reservasAPI.updateReserva(Reserva, idReserva);
+            return await dataSources.reservasAPI.updateReserva(idReserva,Reserva);
         },
 
         deleteReserva: async (_, { idReserva }, { dataSources }) => {

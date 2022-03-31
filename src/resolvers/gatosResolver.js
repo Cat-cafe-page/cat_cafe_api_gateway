@@ -5,7 +5,7 @@ const gatosResolver = {
             return await dataSources.gatosAPI.getGatoById(gatoId);
         },
         
-        getGatos: async (_, {}, { dataSources }) => {
+        getAllGatos: async (_, {}, { dataSources }) => {
             return await dataSources.gatosAPI.getAllGatos();
         },
 

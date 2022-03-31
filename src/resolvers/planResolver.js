@@ -5,7 +5,7 @@ const planResolver = {
             return await dataSources.reservasAPI.getPlanById(planId);
         },
 
-        getPlans: async (_, {}, { dataSources }) => {
+        getAllPlans: async (_, {}, { dataSources }) => {
             return await dataSources.reservasAPI.getAllPlans();
         },
 
@@ -27,8 +27,8 @@ const planResolver = {
             return await dataSources.reservasAPI.createPlan(plan);
         },
 
-        updatePlan: async (_, { plan, planId }, { dataSources }) => {
-            return await dataSources.reservasAPI.updatePlan(plan, planId);
+        updatePlan: async (_, { planId, plan }, { dataSources }) => {
+            return await dataSources.reservasAPI.updatePlan(planId, plan);
         },
 
         deletePlan: async (_, { planId }, { dataSources }) => {

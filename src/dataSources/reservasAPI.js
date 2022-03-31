@@ -12,12 +12,12 @@ class ReservaAPI extends RESTDataSource {
         return await this.get("/reservas/");
     }
 
-    async getAllReservasByUserDocument(userDocument) {
-        return await this.get(`/reservas_usuario/${userDocument}/`);
+    async getAllReservasByUserDocument(user) {
+        return await this.get(`/reservas_usuario/${user}/`);
     }
 
-    async getReservaById(reservaId) {
-        return await this.get(`/reserva_usuario/${reservaId}/`);
+    async getReservaById(idReserva) {
+        return await this.get(`/reserva_usuario/${idReserva}/`);
     }
 
     async createReserva(reserva) {
@@ -25,13 +25,13 @@ class ReservaAPI extends RESTDataSource {
         return await this.post("/reserva_usuario/", reserva);
     }
 
-    async updateReserva(reserva, reservaId) {
-        const reserva = new Object(reserva);
-        return await this.put(`/reserva_usuario/update/${reservaId}`, reserva);
+    async updateReserva(idReserva,Reserva) {
+        const reserva = new Object(Reserva);
+        return await this.put(`/reserva_usuario/update/${idReserva}`, reserva);
     } 
 
-    async deleteReserva(reservaId) {
-        return await this.delete(`/reserva/remove/${reservaId}/`);
+    async deleteReserva(idReserva) {
+        return await this.delete(`/reserva/remove/${idReserva}/`);
     }
 
     async getAllPlans() {
@@ -59,9 +59,9 @@ class ReservaAPI extends RESTDataSource {
         return await this.post("/plan_usuario/", plan);
     }
 
-    async updatePlan(plan, planId) {
-        const plan = new Object(plan);
-        return await this.put(`/plan_usuario/update/${planId}/`, plan);
+    async updatePlan(planId, plan) {
+        const Plan = new Object(plan);
+        return await this.put(`/plan_usuario/update/${planId}/`, Plan);
     }
 
     async deletePlan(planId) {
